@@ -1,0 +1,6 @@
+# After scraped news_data.tsv file is available, we proceed for preprocessing of data.
+# Firstly, scraped data contains news in English too. so, we use regular expression to filter out those rows with news headlines in English.
+# Secondly, rows with headlines with wordcount less than 4 is also removed since we analyzed that sentence with wordcount less than 4 were not much descriptive to be able to properly classify them. (Such sentences is seen largely on 'literature' category)
+# Thus, after running the lv1_preprocessing file it creates data_to_label.tsv file with columns=['headline', 'summary', 'category', 'label']
+# Now, the file is ready for labelling.
+# Also, Normalization, stemming to be done before procedding for similarity search with min-hashing and for further process.
