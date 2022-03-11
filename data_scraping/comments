@@ -1,0 +1,4 @@
+# To initiate the scraper, first be sure to check if environment consists all the packages required to run the code. For instance, it uses selenium webdriver, csv package, chrome driver
+# To run the file in open terminal in file location and type: python newsdata_scraper.py then press Enter.
+# Unless any exception occurs, the code will scrape the news data from hamropatro.com/news and tsv file will be saved to inception/data_scraping/data/ folder.
+# Header of news_data file: [headline, summary, source, uploadtime, link, category]
