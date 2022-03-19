@@ -4,4 +4,4 @@
 # Thus, after running the lv1_preprocessing file it creates data_to_label.tsv file with columns=['headline', 'summary', 'link', 'category', 'label']
 # Further, data_file from same day are concatenated for ease in labelling. 
 # Now, the file is ready for labelling.
-# Also, Normalization, stemming to be done before proceeding for similarity search with min-hashing and for further process.
+# Also, Normalization, stemming to be done before proceeding for similarity search with min-hashing and for further process.(but similarity search worked well though without normalization and stemming too)
