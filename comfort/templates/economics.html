@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfort NewsGround</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" media="screen and (max-width:940px" href="{% static 'phone.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo"> <a href="{% url 'popular' %}"> Comfort </a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <!-- <li><a href = "{% url 'popular' %}">popular</a></li> -->
+            <li><a href="{% url 'health' %}">health</a></li>
+            <li><a href="{% url 'literature' %}">literature</a></li>
+            <li><a href="{% url 'technology' %}">technology</a></li>
+            <li><a href="{% url 'economics' %}">economics</a></li>
+            <li><a href="{% url 'national' %}">national</a></li>
+            <li><a href="{% url 'international' %}">international</a></li>
+            <li><a href="{% url 'entertainment' %}">entertainment</a></li>
+            <li><a href="{% url 'sports' %}">sports</a></li>
+        </ul>
+    </nav>
+    {% if N %}
+    {% for news in N %}
+    <!-- {{news.sn}} -->
+    <div class="news_container">
+        <div class="news_contents"></div>
+        <div class="news_topic"></div>
+        <h2>{{news.newstopic}}</h2>
+        <div class="news_summary">
+            <h2>{{news.summary}}</h2>
+        </div>
+        <P>
+        <span class="news.source">{{news.newssource}}</span><span class="uploadtime">{{news.uploadtime}}</span><span class="news.link"><a href="{{news.link}}" target="_blank">पुरा पढनुहोस्....</a></span>
+        </p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>No data in This Category</h1>
+    {% endif %}
+
+
+
+</body>

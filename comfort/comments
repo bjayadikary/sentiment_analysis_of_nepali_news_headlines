@@ -1,5 +1,0 @@
-# list of code-snippets that generated this 'comfort' folder:
-# django-admin startproject comfort => this generated comfort (project name) folder
-# Then, cd to comfort and did: python manage.py startapp news_ground => created new app a.k.a  news_ground app under the built project
-# Added appname in INSTALLED_APPS list under settings.py of project_name directory as:
-INSTALLED_APPS = ['news_ground', '....']

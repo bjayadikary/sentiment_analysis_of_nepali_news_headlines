@@ -1,0 +1,24 @@
+Required packages and drivers:
+--> python3
+--> numpy
+--> pickle
+--> os
+--> sys
+--> re
+--> selenium
+--> chromedriver
+--> time
+--> datetime
+--> csv
+--> mysql
+--> django
+--> pymysql
+...install other if required.
+
+
+Do sequentially:
+-->  create database 'comfortdb'
+-->  do migrations: python manage.py makemigrations
+				  python manage.py migrate
+-->  execute scraper_plus_prediction_plus_insertion.py file
+--> run the server: python manage.py runserver,

@@ -1,0 +1,17 @@
+# 297 (195 after normalized) suffixes in suffix.txt file, Reference: https://github.com/birat-bade/NepaliStemmer
+# 36137 (35136 after normalized) words in shabdakosh-words.txt file, Reference: https://github.com/PraveshKoirala/stemmer
+
+# first, extracted list_of_suffixes and list_of_shabdakosh_words from those files
+
+# then, grouped the suffix in dictionary with keys corresponding to the length of suffix
+
+# when input (i.e.raw string to be stemmed) is passed, some preprocessing is done like removal of spaces before & after string, removal of newlines and tabs, removal of punctuations and numbers
+# also, we could largely see inadvertant mistakes while writing in nepali, say a word, 'बीमा' mistakenly written as 'बिमा'. This could not only give no match in shabdakosh_list and proceed stemming, which results in overstemming (by removing 'मा' from 'बीमा' since it matches a suffix from our suffix list), but also overloads the word indexing list. Thus, normalizing both shabdakosh_words and input raw_string is essential. (Another example: 'साङ्केतिक'/'साङ्केतीक' which, without stemming, could lead to overloading the word_index_list.)
+#normalize_word() function we defined replaces list_of_characters=['ऊ', 'व', 'श', 'ष', 'ू', 'ी', 'ँ', 'ई'] with ['उ', 'ब', 'स', 'स', 'ु', 'ि', '', 'इ']
+
+# then for each_word(whether it's inflected or not) in preprocessed_raw_string: we pass it over the center function that does following:
+# first, normalizes the word with normalize_word() to match the root in shabdakosh_words_list after stemming is complete.
+# then, proceeding with only those words that are not an exact match in nepali dictionary
+# after that, longest length stripping approach is followed i.e. matching the endings of inflected_word over the suffixes with longest length first, and if inflected_word ending matches any of the suffix, then returns the stemmed_word
+
+# Remark and future works: the process, though, has the overstemming issues. For instance, 'एमाले' represents a political group here in nepal. but, since 'एमाले' is not available in shabdakosh_words_list it stems to 'एमा'('ले' is removed since a match in suffix list), which is not what we wanted in this case. but  A way to resolve, as mentioned in 'A Nepali Rule Based Stemmer' by Pravesh Koirala is to maintain exception word list to check against to prevent over-stemming. Also, we could develop # POS tagger for nepali to not stem words that represent ,say, political leader or any other part of speech.... # Hybrid Stemming...
